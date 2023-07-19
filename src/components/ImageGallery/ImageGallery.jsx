@@ -43,17 +43,13 @@ export function ImageGallery({ imageName }) {
           return;
         }
 
-        if (page > 1) {
-          setImages(state => [...state, ...images.hits]);
-          setStatus('resolved');
+        setImages(state => [...state, ...images.hits]);
+        setStatus('resolved');
 
-          window.scrollTo({
-            top: window.scrollY + 200,
-            behavior: 'smooth',
-          });
-
-          return;
-        }
+        window.scrollTo({
+          top: window.scrollY + 200,
+          behavior: 'smooth',
+        });
       })
       .catch(error => {
         setPage(1);
